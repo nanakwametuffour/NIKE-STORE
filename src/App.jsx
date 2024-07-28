@@ -1,8 +1,9 @@
 import React from 'react'
 import Hero from './components/Hero'
- import { heroapi, popularsales, toprateslaes, highlight, sneaker } from './data/data'
+ import { heroapi, popularsales, toprateslaes, highlight, sneaker, story } from './data/data'
 import Product from './components/Product'
 import Content from './components/Content';
+import Stories from './components/Stories';
 export default function App() {
   return (
     <>
@@ -12,6 +13,7 @@ export default function App() {
         <Content endpoint={highlight} ifExists/>
         <Product endpoint={toprateslaes} />
         <Content endpoint={sneaker} />
+         <Stories story={story}/>
       </main>
     </>
   );

@@ -1,13 +1,16 @@
 import React from 'react'
 import Hero from './components/Hero'
- import { heroapi } from './data/data'
+ import { heroapi, popularsales, toprateslaes } from './data/data'
+import Product from './components/Product'
 export default function App() {
   return (
     <>
-    <main>
-      <Hero heroapi={heroapi}/>
-    </main>
+      <main className='flex flex-col gap-16'>
+        <Hero heroapi={heroapi} />
+        <Product endpoint={popularsales} ifExists/>
+        <Product endpoint={toprateslaes}/>
+      </main>
     </>
-  )
+  );
 }
 

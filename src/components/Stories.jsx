@@ -26,7 +26,7 @@ export default function Stories({ story: { news, title } }) {
   return (
     <div className="nike-container mb-11">
       <Title title={title} />
-      <div className="">
+      <div className="mt-2">
         <Splide options={splideOptions}>
           {news.map((get, i) => (
             <SplideSlide key={i} className="mb-0.5">
@@ -55,7 +55,7 @@ export default function Stories({ story: { news, title } }) {
                 </div>
                 <div className="grid items-center justify-items-start px-4">
                   <h1 className="text-base font-semibold lg:text-sm">{get.title}</h1>
-                  <p className="text-sm text-justify lg:text-sm">{truncate(get.text, {length:176})}</p>
+                  <p className="text-sm text-justify lg:text-sm">{truncate(get.text, {length:50})}</p>
                 </div>
                 <div className="flex items-center justify-center px-4 w-full">
                   <a href={get.url} target="_blank" role="button" className="bg-gradient-to-b from-slate-900 to-black text-slate-100

@@ -5,9 +5,11 @@ import Product from './components/Product'
 import Content from './components/Content';
 import Stories from './components/Stories';
 import Footer from './components/Footer';
+import Header from './components/Header';
 export default function App() {
   return (
     <>
+      <Header/>
       <main className="flex flex-col gap-16">
         <Hero heroapi={heroapi} />
         <Product endpoint={popularsales} ifExists />

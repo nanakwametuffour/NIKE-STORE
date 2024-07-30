@@ -1,6 +1,7 @@
 import React from "react";
 import { FaShoppingBag, FaShoppingCart, FaStar } from "react-icons/fa";
-
+import { setItemToCart } from "../../redux/cart/cartSlice";
+import { useDispatch } from "react-redux";
 export default function Item({
   id,
   color,
@@ -13,7 +14,11 @@ export default function Item({
   rating,
   price,
 }) {
-  console.log(title);
+  const dispatch = useDispatch();
+  const onAddToCart = () => {
+    const Item = { id, title, img, color, shadow, price };
+    dispatch(setItemToCart(Item));
+  };
   return (
     <div
       className={` relative bg-gradient-to-b ${color} ${shadow} grid items-center ${
@@ -50,6 +55,7 @@ export default function Item({
           <button
             type="button"
             className="icon-style text-slate-900 bg-white p-1 opacity-900 blur-effect-theme button-theme shadow-slate-200"
+            onClick={(e) => onAddToCart()}
           >
             <FaShoppingBag />
           </button>

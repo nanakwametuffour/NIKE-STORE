@@ -2,10 +2,17 @@ import React, { useEffect, useState } from "react";
 import { FaMagnifyingGlass } from "react-icons/fa6";
 import logo from "../assets/logo.png";
 import { FaHeart, FaShoppingBag } from "react-icons/fa";
+ import { useDispatch, useSelector } from "react-redux";
 import { filter } from "lodash";
+import { setOpenCart } from "../redux/cart/cartSlice";
 
 export default function Header() {
   const [sticky, setStick] = useState(false);
+
+  const dispatch = useDispatch();
+  const onCartToggle = ()=>{
+      dispatch(setOpenCart({cartState: true}))
+  }
   const headerScroll = () => {
     if (window.scrollY > 30) {
       setStick(true);
@@ -56,14 +63,14 @@ export default function Header() {
               type="button"
               className="border-none outline-none active:scale-110 transition-all duration-300 relative"
             >
-              <FaShoppingBag
+              <FaShoppingBag onClick={onCartToggle}
                 className={`icon-style ${
                   sticky && "text-slate-900 transition-all duration-300"
                 }`}
               />
             </button>
             <div
-              className={` absolute top-4  bg-blue-600 text-white rounded-full w-4 h-4 shadow shadow-slate-300 text-[0.65rem]leading-tight font-medium flex items-center justify-center cursor-pointer hover:scale-110 transition-all duration-300 `}
+              className={` absolute top-6 sm:top-12 bg-blue-600 text-white rounded-full w-4 h-4 shadow shadow-slate-300 text-[0.65rem]leading-tight font-medium flex items-center justify-center cursor-pointer hover:scale-110 transition-all duration-300 `}
             >
               0
             </div>

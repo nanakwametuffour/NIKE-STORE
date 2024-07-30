@@ -1,6 +1,6 @@
 import React from "react";
 import { FaShoppingBag, FaShoppingCart, FaStar } from "react-icons/fa";
-import { setItemToCart } from "../../redux/cart/cartSlice";
+import { setItemToCart, setOpenCart } from "../../redux/cart/cartSlice";
 import { useDispatch } from "react-redux";
 export default function Item({
   id,
@@ -19,6 +19,11 @@ export default function Item({
     const Item = { id, title, img, color, shadow, price, text };
     dispatch(setItemToCart(Item));
   };
+
+    const onCartToggle = () => {
+      dispatch(setOpenCart({ cartState: true }));
+    };
+
   return (
     <div
       className={` relative bg-gradient-to-b ${color} ${shadow} grid items-center ${
@@ -61,6 +66,7 @@ export default function Item({
           </button>
           <button
             type="button"
+            onClick={(e) => {onAddToCart(), onCartToggle();}}
             className="icon-style text-slate-900 bg-white  w-full opacity-900 blur-effect-theme button-theme shadow-slate-200 font-medium"
           >
             {btn}

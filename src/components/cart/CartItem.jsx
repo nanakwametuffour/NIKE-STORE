@@ -1,9 +1,48 @@
 import React from "react";
 import { FaMinus, FaPlus, FaTrash } from "react-icons/fa6";
+import { useDispatch } from "react-redux";
+import { setDecreaseItem, setIncreaseItem, setRemoveItem } from "../../redux/cart/cartSlice";
 
 export default function CartItem({
   item: { id, text, title, img, price, color, cartQuantity, shadow },
 }) {
+  
+  const dispatch = useDispatch()
+  const removeItem = ()=>{
+   dispatch(
+     setRemoveItem({ id, text, title, img, price, color, cartQuantity, shadow })
+   );
+  }
+   
+  const increaseItemQty = ()=>{
+     dispatch(
+       setIncreaseItem({
+         id,
+         text,
+         title,
+         img,
+         price,
+         color,
+         cartQuantity,
+         shadow,
+       })
+     );
+  }
+  const decreaseItemQty = () => {
+    dispatch(
+      setDecreaseItem({
+        id,
+        text,
+        title,
+        img,
+        price,
+        color,
+        cartQuantity,
+        shadow,
+      })
+    );
+  };
+
   return (
     <div className="flex items-center justify-between w-full px-5">
       <div className="flex items-center gap-5 justify-between w-full mt-4">
@@ -30,6 +69,7 @@ export default function CartItem({
           <div className="flex items-center justify-around w-full">
             <button
               type="button"
+              onClick={decreaseItemQty}
               className="bg-theme-cart text-slate-100 rounded-full"
             >
               <FaMinus className="w-5 h-5" />
@@ -44,6 +84,7 @@ export default function CartItem({
 
             <button
               type="button"
+              onClick={increaseItemQty}
               className="bg-theme-cart text-slate-100 rounded-full  flex items-center"
             >
               <FaPlus className="w-5 h-5" />
@@ -57,6 +98,7 @@ export default function CartItem({
           </div>
           <div className="">
             <button
+              onClick={(e) => removeItem()}
               type="button"
               className={`bg-gradient-to-b ${color} ${shadow}  rounded hover:scale-110 p-1 transition-all duration-100 ease-in-out text-gray-300`}
             >

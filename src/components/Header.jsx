@@ -4,12 +4,13 @@ import logo from "../assets/logo.png";
 import { FaHeart, FaShoppingBag } from "react-icons/fa";
  import { useDispatch, useSelector } from "react-redux";
 import { filter } from "lodash";
-import { setOpenCart } from "../redux/cart/cartSlice";
+import { selectTotalQTY, setOpenCart } from "../redux/cart/cartSlice";
 
 export default function Header() {
   const [sticky, setStick] = useState(false);
 
   const dispatch = useDispatch();
+   const totalQTY = useSelector(selectTotalQTY);
   const onCartToggle = ()=>{
       dispatch(setOpenCart({cartState: true}))
   }
@@ -72,7 +73,7 @@ export default function Header() {
             <div
               className={` absolute top-3  sm:top-5 xsm:top-3 bg-blue-600 text-white rounded-full w-4 h-4 shadow shadow-slate-300 text-[0.65rem]leading-tight font-medium flex items-center justify-center cursor-pointer hover:scale-110 transition-all duration-300 `}
             >
-              0
+              {totalQTY}
             </div>
           </li>
         </u>

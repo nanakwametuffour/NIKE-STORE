@@ -29,8 +29,12 @@ export default function Footer({ footerAPI: { titles, links } }) {
         </div>
         <div className="flex items-center justify-center gap-1 flex-wrap">
           <p className="text-sm md:text-center">Copyright</p>
-          <sup className="text-base font-bold flex mt-4">&copy; All Reserved Rights</sup>
-          <span className="font-semibold">Design by Nana Kwame Tuffour {Year}</span>
+          <sup className="text-base font-bold flex mt-4">
+            &copy; All Rights Reserved
+          </sup>
+          <span className="font-semibold">
+            Design by Nana Kwame Tuffour {Year}
+          </span>
         </div>
       </div>
     </footer>

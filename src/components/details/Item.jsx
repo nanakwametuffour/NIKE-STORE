@@ -16,7 +16,7 @@ export default function Item({
 }) {
   const dispatch = useDispatch();
   const onAddToCart = () => {
-    const Item = { id, title, img, color, shadow, price };
+    const Item = { id, title, img, color, shadow, price, text };
     dispatch(setItemToCart(Item));
   };
   return (

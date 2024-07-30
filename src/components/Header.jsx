@@ -70,7 +70,7 @@ export default function Header() {
               />
             </button>
             <div
-              className={` absolute top-6 sm:top-12 bg-blue-600 text-white rounded-full w-4 h-4 shadow shadow-slate-300 text-[0.65rem]leading-tight font-medium flex items-center justify-center cursor-pointer hover:scale-110 transition-all duration-300 `}
+              className={` absolute top-3  sm:top-5 xsm:top-3 bg-blue-600 text-white rounded-full w-4 h-4 shadow shadow-slate-300 text-[0.65rem]leading-tight font-medium flex items-center justify-center cursor-pointer hover:scale-110 transition-all duration-300 `}
             >
               0
             </div>
